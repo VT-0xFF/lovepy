@@ -11,7 +11,9 @@ def on_connect():
 def on_disconnect():
     print("Disconnected from the toy.")
 
-controller = LovenseController(short_code="<SHORTCODE>", on_connect_callback=on_connect, on_disconnect_callback=on_disconnect)
+controller = LovenseController(short_code="<SHORTCODE>")
+controller.set_on_connect_callback(on_connect)
+controller.set_on_disconnect_callback(on_disconnect)
 
 if controller.start():
     print("Controller started successfully!")
